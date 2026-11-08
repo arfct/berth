@@ -17,9 +17,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/dps/berth/internal/ai"
-	"github.com/dps/berth/internal/state"
-	"github.com/dps/berth/internal/tools"
+	"github.com/arfct/berth/internal/ai"
+	"github.com/arfct/berth/internal/state"
+	"github.com/arfct/berth/internal/tools"
 )
 
 // ---- Tools gateway (design.md, Tools gateway) ----

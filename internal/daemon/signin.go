@@ -15,9 +15,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dps/berth/internal/auth"
-	"github.com/dps/berth/internal/state"
-	"github.com/dps/berth/internal/tunnel"
+	"github.com/arfct/berth/internal/auth"
+	"github.com/arfct/berth/internal/state"
+	"github.com/arfct/berth/internal/tunnel"
 )
 
 // startAuth runs the sign-in server on cfg.AuthAddr (see design.md, Sign-in).

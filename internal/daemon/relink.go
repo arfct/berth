@@ -5,7 +5,7 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/state"
 )
 
 // maxPastGateways bounds the gateways remembered: macOS alternates between

@@ -10,9 +10,9 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/dps/berth/internal/auth"
-	"github.com/dps/berth/internal/state"
-	"github.com/dps/berth/internal/tools"
+	"github.com/arfct/berth/internal/auth"
+	"github.com/arfct/berth/internal/state"
+	"github.com/arfct/berth/internal/tools"
 )
 
 // ---- the admin page's Tools section ----

@@ -17,7 +17,7 @@ make site
 
 git tag -a "$v" -m "Berth $v"
 git push -q origin "$v"
-url="https://github.com/dps/berth/archive/refs/tags/$v.tar.gz"
+url="https://github.com/arfct/berth/archive/refs/tags/$v.tar.gz"
 # GitHub makes the tarball on the first request; retry until it's there.
 for i in 1 2 3 4 5; do
 	sha=$(curl -fsSL "$url" | shasum -a 256 | cut -d' ' -f1) && break

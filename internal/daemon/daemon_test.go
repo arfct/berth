@@ -15,10 +15,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/dps/berth/internal/caddy"
-	"github.com/dps/berth/internal/github"
-	"github.com/dps/berth/internal/runtime"
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/caddy"
+	"github.com/arfct/berth/internal/github"
+	"github.com/arfct/berth/internal/runtime"
+	"github.com/arfct/berth/internal/state"
 )
 
 func newTestDaemon(t *testing.T) (*Daemon, *runtime.Fake, string) {

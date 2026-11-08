@@ -10,7 +10,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/state"
 )
 
 // ---- system load (design.md, Admin page) ----

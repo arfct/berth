@@ -15,7 +15,7 @@
   <a class="brand" href="/"><img src="/assets/icon.svg" alt="" width="28" height="28"><span>Berth</span></a>
   <nav class="top-links">
     <a href="/docs/" aria-current="true">Docs</a>
-    <a href="https://github.com/dps/berth">GitHub</a>
+    <a href="https://github.com/arfct/berth">GitHub</a>
   </nav>
   <button class="menu" type="button" aria-controls="sidebar" aria-expanded="false">Contents</button>
 </header>
@@ -240,7 +240,7 @@ each mostly mean one thing; they are what Anthropic steered to make Golden
 Gate Claude. Give <code>berth ai:mlx</code> a Hugging Face repo of top-k autoencoders
 for the model, in <a href="https://huggingface.co/Qwen/SAE-Res-Qwen3-8B-Base-W64K-L0_50">Qwen-Scope</a>'s
 format, and apps get them too:</p>
-<pre><code>berth ai:mlx --sae Qwen/SAE-Res-Qwen3-8B-Base-W64K-L0_50   # the middle layer's 65,536
+<pre><code class="language-bash">berth ai:mlx --sae Qwen/SAE-Res-Qwen3-8B-Base-W64K-L0_50   # the middle layer's 65,536
 berth ai:mlx --sae-layers 12,18,24                          # more layers
 </code></pre>
 <p>Each layer is about 2 GB to download and 1 GB kept, converted to MLX's
@@ -257,8 +257,7 @@ way, each with what it <code>says</code>.</li>
 <li><code>/interp/scan</code> takes <code>features: [{layer, feature}]</code> beside <code>neurons</code>, and
 gives each feature's <code>similar</code> ones: those pointing nearly the same way,
 often the same idea split finer.</li>
-<li><code>/interp/trace</code> takes <code>features</code> too, and <code>&quot;top_features&quot;: {&quot;layer&quot;: 18,
-&quot;top&quot;: 5}</code> for each token's strongest.</li>
+<li><code>/interp/trace</code> takes <code>features</code> too, and <code>&quot;top_features&quot;: {&quot;layer&quot;: 18, &quot;top&quot;: 5}</code> for each token's strongest.</li>
 <li>A steer entry <code>{layer, feature, value}</code> clamps a feature to the value on
 every token, as the paper does: the stream moves along the feature's
 direction by what it takes, and what the autoencoder can't reconstruct is
@@ -278,7 +277,7 @@ machine, set <code>ollama_url</code> in <code>~/.berth/ai/config.json</code>.</p
     </article>
     <nav class="pager" aria-label="Previous and next"><a class="prev" href="/docs/pull-request-previews/"><span>Previous</span>Pull request previews</a><a class="next" href="/docs/the-admin-page/"><span>Next</span>The admin page</a>
     </nav>
-    <p class="edit"><a href="https://github.com/dps/berth/edit/main/README.md">Edit this page on GitHub</a> (it's a section of the README)</p>
+    <p class="edit"><a href="https://github.com/arfct/berth/edit/main/README.md">Edit this page on GitHub</a> (it's a section of the README)</p>
   </main>
   <nav class="toc" aria-label="On this page">
     <h2>On this page</h2>

@@ -1,4 +1,4 @@
-module github.com/dps/berth
+module github.com/arfct/berth
 
 go 1.27.3
 

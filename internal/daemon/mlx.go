@@ -16,9 +16,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/dps/berth/internal/ai"
-	"github.com/dps/berth/internal/runtime"
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/ai"
+	"github.com/arfct/berth/internal/runtime"
+	"github.com/arfct/berth/internal/state"
 )
 
 // ---- MLX worker (design.md, AI gateway) ----

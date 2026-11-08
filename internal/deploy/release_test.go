@@ -10,8 +10,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/dps/berth/internal/runtime"
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/runtime"
+	"github.com/arfct/berth/internal/state"
 )
 
 // releaseHarness records release commands, backups and restores.

@@ -12,8 +12,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/dps/berth/internal/analytics"
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/analytics"
+	"github.com/arfct/berth/internal/state"
 )
 
 // The on-visit hook (berth on-visit:set) is a shell command berthd runs

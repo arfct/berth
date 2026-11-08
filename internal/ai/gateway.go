@@ -16,7 +16,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/state"
 )
 
 // TokenPrefix marks the per-app tokens apps send in place of a provider key.

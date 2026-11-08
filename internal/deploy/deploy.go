@@ -20,10 +20,10 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/dps/berth/internal/detect"
-	"github.com/dps/berth/internal/gitx"
-	"github.com/dps/berth/internal/runtime"
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/detect"
+	"github.com/arfct/berth/internal/gitx"
+	"github.com/arfct/berth/internal/runtime"
+	"github.com/arfct/berth/internal/state"
 )
 
 // Router re-applies proxy config after current releases change.

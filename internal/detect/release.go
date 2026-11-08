@@ -12,7 +12,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/dps/berth/internal/cron"
+	"github.com/arfct/berth/internal/cron"
 )
 
 // Procfile reads dir's Procfile into process type → command.

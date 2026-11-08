@@ -14,8 +14,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dps/berth/internal/ai"
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/ai"
+	"github.com/arfct/berth/internal/state"
 )
 
 // ---- AI gateway (design.md, AI gateway) ----

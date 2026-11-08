@@ -12,9 +12,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/dps/berth/internal/deploy"
-	"github.com/dps/berth/internal/offsite"
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/deploy"
+	"github.com/arfct/berth/internal/offsite"
+	"github.com/arfct/berth/internal/state"
 )
 
 // ---- off-Mac backups (design.md, Off-Mac backups) ----

@@ -9,7 +9,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/dps/berth/internal/daemon"
+	"github.com/arfct/berth/internal/daemon"
 )
 
 // ---- pull request previews (design.md, Pull request previews) ----

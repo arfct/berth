@@ -13,8 +13,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/dps/berth/internal/runtime"
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/runtime"
+	"github.com/arfct/berth/internal/state"
 )
 
 // ---- workers: the Procfile's other process types (design.md, Workers and cron) ----

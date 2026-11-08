@@ -9,7 +9,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/state"
 )
 
 // Local is the provider name for models served by Ollama on the Mac.

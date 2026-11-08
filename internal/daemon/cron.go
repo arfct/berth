@@ -12,8 +12,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/dps/berth/internal/cron"
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/cron"
+	"github.com/arfct/berth/internal/state"
 )
 
 // ---- cron: app.json's scheduled jobs (design.md, Workers and cron) ----

@@ -6,12 +6,12 @@ Oct 24, 2026 · @David Singleton
 
 Berth is a small PaaS for Apple Silicon Mac minis: `git push` to GitHub and your app is live on the internet at `app.yourdomain.com` in under a minute, with a Postgres database one command away. It composes four things that already exist and are each very good at one job — Apple's `container` CLI (one micro-VM per app), Caddy (routing), Cloudflare Tunnel (public ingress with no open ports), and GitHub webhooks (deploy trigger) — behind a Dokku-shaped CLI. The whole system lives in `~/.berth`, needs no `sudo` after install, no YAML, and no Docker Desktop.
 
-Target: macOS 26, Apple Silicon. Language: Go (two static binaries, `berth` and `berthd`; same toolchain Caddy and cloudflared use). License: MIT. Name: *Berth* (where a ship ties up); code at github.com/dps/berth.
+Target: macOS 26, Apple Silicon. Language: Go (two static binaries, `berth` and `berthd`; same toolchain Caddy and cloudflared use). License: MIT. Name: *Berth* (where a ship ties up); code at github.com/arfct/berth.
 
 **Status (Oct 2026):** implemented as described here and in daily use on one Mac mini (M4, 16 GB, macOS 26.1, Apple's `container` 1.6.1) serving several apps on a real domain: launchd runs berthd, Caddy and cloudflared; the Cloudflare tunnel, GitHub webhooks, Google sign-in, the AI gateway and the admin page have all carried real traffic. Not yet exercised: recovery from a power cut, `berth reboot`, restoring onto a second Mac (`berth init --restore`), and PR previews against a real pull request (see each section). Sections below describe what the code does; findings from building it are written in place.
 
 ```bash
-brew tap dps/berth https://github.com/dps/berth && brew trust dps/berth && brew install berth   # once
+brew tap arfct/berth https://github.com/arfct/berth && brew trust arfct/berth && brew install berth   # once
 berth init --domain example.com                                       # ~3 minutes
 berth create myapp --repo me/myapp                       # per app
 git push                                                  # every deploy
@@ -46,8 +46,8 @@ The whole product is three moments. Everything in later sections exists to make 
 **1. Install (once, \~3 minutes)**
 
 ```bash
-brew tap dps/berth https://github.com/dps/berth   # the formula lives in this repo
-brew trust dps/berth                               # Homebrew 7+ refuses untrusted taps
+brew tap arfct/berth https://github.com/arfct/berth   # the formula lives in this repo
+brew trust arfct/berth                               # Homebrew 7+ refuses untrusted taps
 brew install berth                                 # or --HEAD for main
 berth init --domain example.com
 ```
@@ -364,7 +364,7 @@ Prompts default to yes; with no terminal to answer them they're a no unless `-y`
 
 ## Working from another machine
 
-The Mac may be in a closet; the editor and the coding agent are on a laptop. So the CLI works there too: **on a machine without Berth** (no `~/.berth/config.json`), a command runs on the Berth Mac as `ssh [-t] [-p port] <mac> 'PATH=… berth <args>'`. The Mac is `$BERTH_HOST` (`you@mac.local`, or an `ssh://` URL), else the host in the current repo's `berth` git remote, so an agent in an app's repo needs no setup. Every argument is single-quoted for the remote shell; the host (from `BERTH_HOST` or the remote URL) can't start with `-` or contain spaces or quotes, and follows `--`, so it can't smuggle in ssh options. `-t` is used only when stdin and stdout are both terminals, so prompts, `logs -f` and `berth run` shells work and `--json` output stays clean. Exit codes pass through (so `dev:push`-style codes and scripts work); ssh's own failure (255) gets a hint about Remote Login and keys. The laptop needs only the CLI; the Homebrew formula requires macOS 26 on Apple Silicon (for `container`), so other machines use `go install github.com/dps/berth/cmd/berth@latest`, which builds for Intel Macs and Linux too.
+The Mac may be in a closet; the editor and the coding agent are on a laptop. So the CLI works there too: **on a machine without Berth** (no `~/.berth/config.json`), a command runs on the Berth Mac as `ssh [-t] [-p port] <mac> 'PATH=… berth <args>'`. The Mac is `$BERTH_HOST` (`you@mac.local`, or an `ssh://` URL), else the host in the current repo's `berth` git remote, so an agent in an app's repo needs no setup. Every argument is single-quoted for the remote shell; the host (from `BERTH_HOST` or the remote URL) can't start with `-` or contain spaces or quotes, and follows `--`, so it can't smuggle in ssh options. `-t` is used only when stdin and stdout are both terminals, so prompts, `logs -f` and `berth run` shells work and `--json` output stays clean. Exit codes pass through (so `dev:push`-style codes and scripts work); ssh's own failure (255) gets a hint about Remote Login and keys. The laptop needs only the CLI; the Homebrew formula requires macOS 26 on Apple Silicon (for `container`), so other machines use `go install github.com/arfct/berth/cmd/berth@latest`, which builds for Intel Macs and Linux too.
 
 A few commands do their work locally instead: `new` and `dev:push` (they use local files), `git:remote` (it asks the Mac for the repo URL with `--print`, then adds the remote here, with the host as this machine reaches it), `admin` (it asks the Mac for the address and opens it here), `init`, `uninstall`, `trust-ca`, help and completion. `config:import` sends the local file on stdin (it accepts `-`); any other path argument is a path on the Mac.
 
@@ -808,7 +808,7 @@ Things to settle in milestone 1 by trying them, and limits worth stating in the 
 - [ ] **launchd + `container system`**: confirm the service starts cleanly at login with no GUI session interaction, and confirm that `fdesetup authrestart` brings the user session (and so the LaunchAgents) back without a login prompt on macOS 26. *Half verified (Oct 2026): on the test Mac the agents load at login and keep berthd, Caddy and cloudflared running (`launchctl kickstart -k` restarts berthd cleanly). Whether `fdesetup authrestart` brings the session back without a login prompt is still untested.*
 - [x] **Container network loss**: twice in two hours of testing, every container lost outbound internet (`Network is unreachable`, builds stuck on `pip install`, apps unable to call external APIs) while the Mac itself was fine and inbound traffic still worked. `container system stop && container system start` fixes it, and costs about 6 s of downtime while berthd brings the services and apps back. berthd now probes outbound access every 5 minutes from a throwaway Alpine container (every minute once a probe fails). After two failures in a row, with no deploy in flight, it restarts the container system itself and sends a `network` notification; this doesn't count as a crash. Set `auto_heal_network: false` in `config.json` to get only the notification. Builds that fail with network-error signatures say so, and `berth doctor` runs the same probe.
 - [ ] **Rosetta**: should `berth` pass `--rosetta`-style flags for amd64-only images automatically, or just document "use arm64 images"? Default: detect `linux/amd64`-only manifests and warn. *Not implemented in v1; the builder VM has Rosetta enabled by default (`container system property list`), so amd64 base images build.*
-- [x] **Name**: *Berth*, at github.com/dps/berth.
+- [x] **Name**: *Berth*, at github.com/arfct/berth.
 - [ ] **GitHub device flow**: needs Berth's GitHub OAuth app (device flow enabled; its public client ID is compiled in as `github.DefaultClientID`, overridable with `BERTH_GITHUB_CLIENT_ID`).
 - [x] **Cloudflare login-cert token permissions**: verified on cronbon.com: the token in `cloudflared tunnel login`'s cert can read the zone and its DNS records, delete records, and read and write the tunnel's remote configuration. DNS records are created with `cloudflared tunnel route dns`.
 

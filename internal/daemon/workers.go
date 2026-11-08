@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/state"
 )
 
 type ScaleParams struct {

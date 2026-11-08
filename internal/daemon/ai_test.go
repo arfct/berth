@@ -12,7 +12,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/dps/berth/internal/ai"
+	"github.com/arfct/berth/internal/ai"
 )
 
 func newAIDaemon(t *testing.T) (*Daemon, string) {

@@ -7,8 +7,8 @@ later your app is live at `https://myapp.yourdomain.com`, running in its own
 little VM on a Mac in your closet. Postgres is one command away.
 
 ```bash
-brew tap dps/berth https://github.com/dps/berth
-brew trust dps/berth                      # Homebrew 7+ wants you to OK third-party taps
+brew tap arfct/berth https://github.com/arfct/berth
+brew trust arfct/berth                      # Homebrew 7+ wants you to OK third-party taps
 brew install berth
 
 berth init --domain example.com           # once
@@ -110,8 +110,8 @@ Homebrew installs everything else: Apple's `container` runtime,
 ## Setting up
 
 ```bash
-brew tap dps/berth https://github.com/dps/berth
-brew trust dps/berth
+brew tap arfct/berth https://github.com/arfct/berth
+brew trust arfct/berth
 brew install berth
 berth init --domain example.com
 ```
@@ -1408,7 +1408,7 @@ berth gc                 # clear out old release images, expired dumps and lefto
 The Mac can live in the closet while you, your editor and your agent work on
 a laptop. Install the CLI there too, but don't run `init`: use the Homebrew
 formula on a Mac that meets [the requirements](#what-you-need), or
-`go install github.com/dps/berth/cmd/berth@latest` anywhere else Go runs
+`go install github.com/arfct/berth/cmd/berth@latest` anywhere else Go runs
 (Intel Macs and Linux included). Then tell it where the Mac is:
 
 ```bash
@@ -1757,7 +1757,7 @@ To cut a release, `scripts/release.sh v0.2.0` runs the tests, tags, pushes,
 and points the Homebrew formula at the new tarball.
 
 The website, [berth.computer](https://berth.computer), lives in `site/` and is
-itself a Berth app (`berth create site --repo dps/berth --path site`). Its
+itself a Berth app (`berth create site --repo arfct/berth --path site`). Its
 docs are this README, one page per `##` section with the sidebar taken from
 the Contents list, so after editing the README run `make site` and commit
 what it writes. Do the same after changing `site.css` or `site.js`: their

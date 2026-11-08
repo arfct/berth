@@ -13,9 +13,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/dps/berth/internal/auth"
-	"github.com/dps/berth/internal/state"
-	"github.com/dps/berth/internal/tunnel"
+	"github.com/arfct/berth/internal/auth"
+	"github.com/arfct/berth/internal/state"
+	"github.com/arfct/berth/internal/tunnel"
 )
 
 func TestAccessPolicyRoutesThroughSignIn(t *testing.T) {

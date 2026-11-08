@@ -57,7 +57,7 @@ func main() {
 	readme := flag.String("readme", "README.md", "the README to read")
 	out := flag.String("out", "site/public", "the site's public folder")
 	base := flag.String("base", "https://berth.computer", "the site's address, for the sitemap")
-	repo := flag.String("repo", "https://github.com/dps/berth", "the repository, for links to other files")
+	repo := flag.String("repo", "https://github.com/arfct/berth", "the repository, for links to other files")
 	flag.Parse()
 	if err := run(*readme, *out, *base, *repo); err != nil {
 		fmt.Fprintln(os.Stderr, "sitegen:", err)

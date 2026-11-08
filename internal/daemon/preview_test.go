@@ -10,8 +10,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/dps/berth/internal/auth"
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/auth"
+	"github.com/arfct/berth/internal/state"
 )
 
 // TestAdminPreview serves the live admin page on 127.0.0.1:$BERTH_ADMIN_PREVIEW

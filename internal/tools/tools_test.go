@@ -18,7 +18,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/state"
 )
 
 // rig is a gateway with one app, and every provider host pointed at a fake.

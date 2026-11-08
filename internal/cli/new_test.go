@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/dps/berth/internal/detect"
+	"github.com/arfct/berth/internal/detect"
 )
 
 func TestStartersFollowTheContract(t *testing.T) {

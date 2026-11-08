@@ -14,17 +14,17 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/dps/berth/internal/caddy"
-	"github.com/dps/berth/internal/daemon"
-	"github.com/dps/berth/internal/deploy"
-	"github.com/dps/berth/internal/doctor"
-	"github.com/dps/berth/internal/github"
-	"github.com/dps/berth/internal/launchd"
-	"github.com/dps/berth/internal/offsite"
-	"github.com/dps/berth/internal/rpc"
-	"github.com/dps/berth/internal/runtime"
-	"github.com/dps/berth/internal/state"
-	"github.com/dps/berth/internal/tunnel"
+	"github.com/arfct/berth/internal/caddy"
+	"github.com/arfct/berth/internal/daemon"
+	"github.com/arfct/berth/internal/deploy"
+	"github.com/arfct/berth/internal/doctor"
+	"github.com/arfct/berth/internal/github"
+	"github.com/arfct/berth/internal/launchd"
+	"github.com/arfct/berth/internal/offsite"
+	"github.com/arfct/berth/internal/rpc"
+	"github.com/arfct/berth/internal/runtime"
+	"github.com/arfct/berth/internal/state"
+	"github.com/arfct/berth/internal/tunnel"
 )
 
 type initOpts struct {

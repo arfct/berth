@@ -1,4 +1,4 @@
-module github.com/dps/berth/tools/sitegen
+module github.com/arfct/berth/tools/sitegen
 
 go 1.23
 

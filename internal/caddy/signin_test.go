@@ -16,8 +16,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/dps/berth/internal/auth"
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/auth"
+	"github.com/arfct/berth/internal/state"
 )
 
 func freeAddr(t *testing.T) string {

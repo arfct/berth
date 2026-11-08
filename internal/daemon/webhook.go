@@ -10,9 +10,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dps/berth/internal/github"
-	"github.com/dps/berth/internal/state"
-	"github.com/dps/berth/internal/tunnel"
+	"github.com/arfct/berth/internal/github"
+	"github.com/arfct/berth/internal/state"
+	"github.com/arfct/berth/internal/tunnel"
 )
 
 const (

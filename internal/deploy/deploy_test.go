@@ -14,8 +14,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/dps/berth/internal/runtime"
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/runtime"
+	"github.com/arfct/berth/internal/state"
 )
 
 type fakeRouter struct {

@@ -11,10 +11,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dps/berth/internal/deploy"
-	"github.com/dps/berth/internal/runtime"
-	"github.com/dps/berth/internal/state"
-	"github.com/dps/berth/internal/tunnel"
+	"github.com/arfct/berth/internal/deploy"
+	"github.com/arfct/berth/internal/runtime"
+	"github.com/arfct/berth/internal/state"
+	"github.com/arfct/berth/internal/tunnel"
 )
 
 type AppStatus struct {

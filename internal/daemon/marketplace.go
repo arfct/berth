@@ -13,7 +13,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/dps/berth/internal/tunnel"
+	"github.com/arfct/berth/internal/tunnel"
 )
 
 // ---- eBay marketplace account deletion ----

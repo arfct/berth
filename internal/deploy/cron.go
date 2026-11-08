@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/state"
 )
 
 // RunJob runs one of rel's cron jobs to completion in a fresh container

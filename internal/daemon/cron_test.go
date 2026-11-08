@@ -12,7 +12,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/dps/berth/internal/runtime"
+	"github.com/arfct/berth/internal/runtime"
 )
 
 func commitFiles(t *testing.T, repo string, files map[string]string) {

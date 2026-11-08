@@ -9,8 +9,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/dps/berth/internal/runtime"
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/runtime"
+	"github.com/arfct/berth/internal/state"
 )
 
 // TestLiveReplace runs Replace against a real, throwaway Postgres in the

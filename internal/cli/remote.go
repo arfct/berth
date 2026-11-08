@@ -13,7 +13,7 @@ import (
 	"github.com/spf13/cobra"
 	"golang.org/x/term"
 
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/state"
 )
 
 // ---- using Berth from another machine (design.md, Working from another machine) ----

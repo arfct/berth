@@ -8,7 +8,7 @@ import (
 
 	"golang.org/x/net/dns/dnsmessage"
 
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/state"
 )
 
 // SRVDomain is the zone berthd answers for Caddy. Caddy's route for each app

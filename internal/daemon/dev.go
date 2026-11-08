@@ -11,11 +11,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dps/berth/internal/auth"
-	"github.com/dps/berth/internal/deploy"
-	"github.com/dps/berth/internal/gitx"
-	"github.com/dps/berth/internal/services"
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/auth"
+	"github.com/arfct/berth/internal/deploy"
+	"github.com/arfct/berth/internal/gitx"
+	"github.com/arfct/berth/internal/services"
+	"github.com/arfct/berth/internal/state"
 )
 
 // Dev versions (design.md, Dev versions): <app>-dev is an ordinary app

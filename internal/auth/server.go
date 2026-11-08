@@ -16,7 +16,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/state"
 )
 
 // Identity headers passed to apps. Caddy deletes any a client sends.

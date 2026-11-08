@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/dps/berth/internal/analytics"
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/analytics"
+	"github.com/arfct/berth/internal/state"
 )
 
 func TestVisitHook(t *testing.T) {
