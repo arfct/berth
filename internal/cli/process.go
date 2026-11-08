@@ -11,7 +11,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/dps/berth/internal/daemon"
+	"github.com/arfct/berth/internal/daemon"
 )
 
 // ---- workers and cron (design.md, Workers and cron) ----

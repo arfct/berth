@@ -9,8 +9,8 @@ import (
 	"github.com/spf13/cobra"
 	"golang.org/x/term"
 
-	"github.com/dps/berth/internal/daemon"
-	"github.com/dps/berth/internal/tools"
+	"github.com/arfct/berth/internal/daemon"
+	"github.com/arfct/berth/internal/tools"
 )
 
 // ---- Tools gateway (design.md, Tools gateway) ----

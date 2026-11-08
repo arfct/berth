@@ -13,7 +13,7 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/state"
 )
 
 // AdminEnv is how berthd passes the child its token for tools:call, and

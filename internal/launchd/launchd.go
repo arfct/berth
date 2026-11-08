@@ -15,7 +15,7 @@ import (
 	"text/template"
 	"time"
 
-	"github.com/dps/berth/templates"
+	"github.com/arfct/berth/templates"
 )
 
 type Agent struct {

@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/dps/berth/internal/tunnel"
+	"github.com/arfct/berth/internal/tunnel"
 )
 
 func TestMarketplaceChallengeHash(t *testing.T) {

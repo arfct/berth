@@ -20,7 +20,7 @@ import (
 // ---- versions and upgrades (design.md, Releases and upgrades) ----
 
 // releaseRepo is where releases are tagged.
-const releaseRepo = "dps/berth"
+const releaseRepo = "arfct/berth"
 
 var semverRe = regexp.MustCompile(`^v?(\d+)\.(\d+)\.(\d+)$`)
 
@@ -128,7 +128,7 @@ func installMethod() (how string, upgrade [][]string) {
 		// tap's only on `brew update`: without it, upgrade sees no new version.
 		return "Homebrew", [][]string{{"brew", "update"}, {"brew", "upgrade", "berth"}}
 	}
-	if bi, ok := debug.ReadBuildInfo(); ok && bi.Main.Path == "github.com/dps/berth" && bi.Main.Version != "" && bi.Main.Version != "(devel)" {
+	if bi, ok := debug.ReadBuildInfo(); ok && bi.Main.Path == "github.com/arfct/berth" && bi.Main.Version != "" && bi.Main.Version != "(devel)" {
 		// `go install …@version` builds from the module cache; a build in a
 		// checkout records its git revision instead.
 		local := false
@@ -136,7 +136,7 @@ func installMethod() (how string, upgrade [][]string) {
 			local = local || kv.Key == "vcs.revision"
 		}
 		if !local {
-			return "go install", [][]string{{"go", "install", "github.com/dps/berth/cmd/berth@latest"}}
+			return "go install", [][]string{{"go", "install", "github.com/arfct/berth/cmd/berth@latest"}}
 		}
 	}
 	return "a source build", nil

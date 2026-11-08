@@ -16,8 +16,8 @@ import (
 	"github.com/spf13/cobra"
 	"golang.org/x/term"
 
-	"github.com/dps/berth/internal/state"
-	"github.com/dps/berth/templates"
+	"github.com/arfct/berth/internal/state"
+	"github.com/arfct/berth/templates"
 )
 
 // ---- berth new (design.md, Starting a new app) ----

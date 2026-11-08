@@ -13,8 +13,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dps/berth/internal/deploy"
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/deploy"
+	"github.com/arfct/berth/internal/state"
 )
 
 // excluded reports whether a path (relative to ~/.berth) stays out of

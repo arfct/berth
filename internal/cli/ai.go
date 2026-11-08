@@ -13,10 +13,10 @@ import (
 	"github.com/spf13/cobra"
 	"golang.org/x/term"
 
-	"github.com/dps/berth/internal/ai"
-	"github.com/dps/berth/internal/daemon"
-	"github.com/dps/berth/internal/deploy"
-	"github.com/dps/berth/internal/runtime"
+	"github.com/arfct/berth/internal/ai"
+	"github.com/arfct/berth/internal/daemon"
+	"github.com/arfct/berth/internal/deploy"
+	"github.com/arfct/berth/internal/runtime"
 )
 
 // ---- AI gateway (design.md, AI gateway) ----

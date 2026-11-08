@@ -9,7 +9,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/state"
 )
 
 // TestMoveToANewMac backs up one Berth and brings it up on another the way

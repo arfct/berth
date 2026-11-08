@@ -12,8 +12,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/dps/berth/internal/runtime"
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/runtime"
+	"github.com/arfct/berth/internal/state"
 )
 
 // sqliteFile makes a real SQLite database with the Mac's sqlite3.

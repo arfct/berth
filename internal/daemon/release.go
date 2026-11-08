@@ -11,8 +11,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dps/berth/internal/deploy"
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/deploy"
+	"github.com/arfct/berth/internal/state"
 )
 
 // releaseBackup dumps each Postgres database app is linked to, just before

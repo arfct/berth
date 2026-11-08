@@ -12,7 +12,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/dps/berth/internal/runtime"
+	"github.com/arfct/berth/internal/runtime"
 )
 
 // fakeWorkers stands in for workers exec'd into containers: a started one

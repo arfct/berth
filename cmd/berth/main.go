@@ -5,7 +5,7 @@ import (
 	"os"
 	"runtime/debug"
 
-	"github.com/dps/berth/internal/cli"
+	"github.com/arfct/berth/internal/cli"
 )
 
 var version = "dev"

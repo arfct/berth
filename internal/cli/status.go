@@ -12,9 +12,9 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/dps/berth/internal/daemon"
-	"github.com/dps/berth/internal/deploy"
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/daemon"
+	"github.com/arfct/berth/internal/deploy"
+	"github.com/arfct/berth/internal/state"
 )
 
 func cmdStatus() *cobra.Command {

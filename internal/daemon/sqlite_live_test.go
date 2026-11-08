@@ -13,8 +13,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/dps/berth/internal/runtime"
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/runtime"
+	"github.com/arfct/berth/internal/state"
 )
 
 // TestLiveSQLite runs the SQLite backup and restore paths against Apple's

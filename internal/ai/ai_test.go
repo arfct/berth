@@ -10,7 +10,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/state"
 )
 
 // upstream is a fake provider: it records requests and answers like

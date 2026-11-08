@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/state"
 )
 
 // A domain added before Berth could reach its zone is attached, with the

@@ -1,10 +1,10 @@
 class Berth < Formula
   desc "Dead simple PaaS for Mac minis: git push and your app is live"
-  homepage "https://github.com/dps/berth"
-  url "https://github.com/dps/berth/archive/refs/tags/v0.2.0.tar.gz"
+  homepage "https://github.com/arfct/berth"
+  url "https://github.com/arfct/berth/archive/refs/tags/v0.2.0.tar.gz"
   sha256 "fa417180adc9df141362faec39610c61bf2e66c7c3fa17d37658aa47caf4a368"
   license "MIT"
-  head "https://github.com/dps/berth.git", branch: "main"
+  head "https://github.com/arfct/berth.git", branch: "main"
 
   depends_on "go" => :build
   depends_on arch: :arm64

@@ -10,8 +10,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/dps/berth/internal/runtime"
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/runtime"
+	"github.com/arfct/berth/internal/state"
 )
 
 // TestLiveWorkers runs workers inside a real web container: their output

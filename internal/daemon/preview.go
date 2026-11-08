@@ -10,10 +10,10 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/dps/berth/internal/deploy"
-	"github.com/dps/berth/internal/github"
-	"github.com/dps/berth/internal/gitx"
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/deploy"
+	"github.com/arfct/berth/internal/github"
+	"github.com/arfct/berth/internal/gitx"
+	"github.com/arfct/berth/internal/state"
 )
 
 // ---- pull request previews (design.md, Pull request previews) ----

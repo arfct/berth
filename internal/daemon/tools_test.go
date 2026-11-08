@@ -10,10 +10,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/dps/berth/internal/caddy"
-	"github.com/dps/berth/internal/deploy"
-	"github.com/dps/berth/internal/state"
-	"github.com/dps/berth/internal/tools"
+	"github.com/arfct/berth/internal/caddy"
+	"github.com/arfct/berth/internal/deploy"
+	"github.com/arfct/berth/internal/state"
+	"github.com/arfct/berth/internal/tools"
 )
 
 func TestToolsEnableDisable(t *testing.T) {

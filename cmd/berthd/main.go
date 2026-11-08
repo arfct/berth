@@ -11,10 +11,10 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/dps/berth/internal/daemon"
-	"github.com/dps/berth/internal/runtime"
-	"github.com/dps/berth/internal/state"
-	"github.com/dps/berth/internal/tools"
+	"github.com/arfct/berth/internal/daemon"
+	"github.com/arfct/berth/internal/runtime"
+	"github.com/arfct/berth/internal/state"
+	"github.com/arfct/berth/internal/tools"
 )
 
 var version = "dev"

@@ -16,7 +16,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/dps/berth/internal/offsite"
+	"github.com/arfct/berth/internal/offsite"
 )
 
 // memS3 is just enough S3 for single-part uploads.

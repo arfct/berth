@@ -12,8 +12,8 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/dps/berth/internal/github"
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/github"
+	"github.com/arfct/berth/internal/state"
 )
 
 // fakeGitHub serves the pull request list it's given and records statuses

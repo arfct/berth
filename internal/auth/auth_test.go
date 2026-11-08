@@ -16,7 +16,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/state"
 )
 
 // fakeProvider signs in whoever is queued in next, and records the

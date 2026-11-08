@@ -14,7 +14,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/dps/berth/templates"
+	"github.com/arfct/berth/templates"
 )
 
 type Result struct {

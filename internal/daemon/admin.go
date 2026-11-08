@@ -16,10 +16,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/dps/berth/internal/admin"
-	"github.com/dps/berth/internal/analytics"
-	"github.com/dps/berth/internal/auth"
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/admin"
+	"github.com/arfct/berth/internal/analytics"
+	"github.com/arfct/berth/internal/auth"
+	"github.com/arfct/berth/internal/state"
 )
 
 // ---- admin page (design.md, Admin page) ----

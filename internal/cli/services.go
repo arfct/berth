@@ -12,10 +12,10 @@ import (
 	"github.com/spf13/cobra"
 	"golang.org/x/term"
 
-	"github.com/dps/berth/internal/daemon"
-	"github.com/dps/berth/internal/runtime"
-	"github.com/dps/berth/internal/services"
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/daemon"
+	"github.com/arfct/berth/internal/runtime"
+	"github.com/arfct/berth/internal/services"
+	"github.com/arfct/berth/internal/state"
 )
 
 // serviceCommands builds the pg:* or redis:* family (same verbs as

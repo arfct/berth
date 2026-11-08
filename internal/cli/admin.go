@@ -7,7 +7,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/dps/berth/internal/daemon"
+	"github.com/arfct/berth/internal/daemon"
 )
 
 // ---- admin page (design.md, Admin page) ----

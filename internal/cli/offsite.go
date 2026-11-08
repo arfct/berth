@@ -11,8 +11,8 @@ import (
 	"github.com/spf13/cobra"
 	"golang.org/x/term"
 
-	"github.com/dps/berth/internal/daemon"
-	"github.com/dps/berth/internal/deploy"
+	"github.com/arfct/berth/internal/daemon"
+	"github.com/arfct/berth/internal/deploy"
 )
 
 // ---- off-Mac backups (design.md, Off-Mac backups) ----

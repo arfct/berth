@@ -7,8 +7,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/dps/berth/internal/runtime"
-	"github.com/dps/berth/internal/state"
+	"github.com/arfct/berth/internal/runtime"
+	"github.com/arfct/berth/internal/state"
 )
 
 // newSQLiteHarness is a harness whose app has a SQLite database. The fake
