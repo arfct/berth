@@ -269,7 +269,7 @@ func (d *Daemon) hRestore(ctx context.Context, params json.RawMessage, out io.Wr
 	}
 	cfg := d.cfg()
 	if gw, err := d.RT.EnsureNetwork(ctx, cfg.Network); err == nil && gw != cfg.Gateway {
-		cfg.Gateway = gw
+		rememberGateway(cfg, gw)
 		d.Store.SaveConfig(cfg)
 	}
 	cs, _ := d.RT.List(ctx)

@@ -9,6 +9,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"io"
 	"log/slog"
 	"net"
 	"net/http"
@@ -459,17 +460,21 @@ func (d *Daemon) reconcile(ctx context.Context) {
 	if err != nil {
 		return
 	}
+	var stale []string
 	gw, err := d.RT.EnsureNetwork(ctx, cfg.Network)
 	if err != nil {
 		slog.Error("network", "err", err)
-	} else if gw != cfg.Gateway {
-		slog.Warn("berth network gateway changed; re-linking services", "old", cfg.Gateway, "new", gw)
-		old := cfg.Gateway
-		cfg.Gateway = gw
-		d.Store.SaveConfig(cfg)
-		if old != "" {
-			defer d.relinkGateway(ctx, old, gw)
+	} else {
+		if gw != cfg.Gateway {
+			slog.Warn("berth network gateway changed; re-linking services", "old", cfg.Gateway, "new", gw)
+			rememberGateway(cfg, gw)
+			if err := d.Store.SaveConfig(cfg); err != nil {
+				slog.Error("save config", "err", err)
+			}
 		}
+		// Before anything starts, so apps come up pointing at the new
+		// gateway rather than failing their health checks first.
+		stale = d.relinkGateways(cfg)
 	}
 	cs, _ := d.RT.List(ctx)
 	svs, _ := d.Store.Services("")
@@ -500,6 +505,21 @@ func (d *Daemon) reconcile(ctx context.Context) {
 			d.event(state.Event{Kind: "start", App: a.Name, Message: fmt.Sprintf("v%d started on boot", rel.N)})
 		}
 	}
+	// Containers that kept running through the change still have the old
+	// gateway in their env: start fresh ones from the rewritten release.
+	for _, name := range stale {
+		rel := d.Store.CurrentRelease(name)
+		if rel == nil {
+			continue
+		}
+		if c, ok := runtime.Find(cs, rel.Container); !ok || !c.Running() {
+			continue
+		}
+		slog.Info("restarting app for the new network gateway", "app", name, "release", rel.N)
+		if err := d.Deployer.Restart(ctx, name, io.Discard); err != nil {
+			slog.Error("restart for new gateway", "app", name, "err", err)
+		}
+	}
 	if err := d.Apply(ctx); err != nil {
 		slog.Warn("caddy apply", "err", err)
 	}
@@ -528,33 +548,6 @@ func (d *Daemon) removeOrphans(ctx context.Context, cs []runtime.Container) {
 		if c.Labels["dev.berth.app"] != "" && !live[c.ID] && !d.Deployer.Busy(c.Labels["dev.berth.app"]) {
 			slog.Info("removing orphan container", "container", c.ID)
 			d.RT.Remove(ctx, c.ID)
-		}
-	}
-}
-
-// relinkGateway rewrites link URLs after the network gateway changed and
-// redeploys affected apps with their current image.
-func (d *Daemon) relinkGateway(ctx context.Context, oldGW, newGW string) {
-	apps, _ := d.Store.Apps()
-	for _, a := range apps {
-		env, err := d.Store.Env(a.Name)
-		if err != nil {
-			continue
-		}
-		changed := false
-		for k, v := range env {
-			// Service URLs (user:pass@gw:port) and the AI and tools gateways' (http://gw:port).
-			for _, sep := range []string{"@", "//"} {
-				if strings.Contains(v, sep+oldGW+":") {
-					v = strings.ReplaceAll(v, sep+oldGW+":", sep+newGW+":")
-					env[k] = v
-					changed = true
-				}
-			}
-		}
-		if changed {
-			d.Store.SaveEnv(a.Name, env)
-			d.Deployer.Deploy(ctx, deploy.Request{App: a.Name, ReuseImage: true, Trigger: "relink"})
 		}
 	}
 }

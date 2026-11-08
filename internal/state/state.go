@@ -72,6 +72,11 @@ type Config struct {
 	OnVisitApps  []string `json:"on_visit_apps,omitempty"` // only these apps' page views; empty is all of them
 	Network      string   `json:"network"`
 	Gateway      string   `json:"gateway,omitempty"` // berth network gateway; services publish here
+	// PastGateways are earlier gateways (macOS can hand the network a new
+	// subnet after a reboot). Every reconcile rewrites them to Gateway in
+	// apps' env and releases, so links that still name one get fixed even
+	// if berthd stopped halfway through the last rewrite.
+	PastGateways []string `json:"past_gateways,omitempty"`
 
 	WebhookAddr    string `json:"webhook_addr"`   // 127.0.0.1:7777
 	CaddyAdmin     string `json:"caddy_admin"`    // 127.0.0.1:2019
