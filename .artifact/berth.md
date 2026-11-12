@@ -1,6 +1,7 @@
 ---
 title: Berth
 date: 2026-10
+status: released
 category: tool
 tags:
   - macos
@@ -13,8 +14,7 @@ media:
     alt: A cream web page with the headline Your agent built it. Berth gives it a home, a drawing of a Mac mini with a Berth sticker on its front, and a dark terminal window listing the steps of a deploy
 credits:
   - dps
-unconfirmed:
-  - date
+unconfirmed: [date, status]
 ---
 
 Berth was written so that the small web apps its author and coding agents kept making could go live on a push, as on a hosting service, without a monthly bill for each. Its host is one Apple Silicon Mac, ideally a Mac mini. A push to an app's GitHub repository builds the app, starts the release in its own Linux virtual machine, checks that it answers, and then moves traffic to it. Each app gets a public address on the owner's domain through a Cloudflare tunnel and a second address on the local network, and no ports are opened on the router.
