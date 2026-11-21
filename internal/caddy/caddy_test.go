@@ -97,3 +97,19 @@ func TestEncodeSkipsEventStreams(t *testing.T) {
 		t.Fatal(types)
 	}
 }
+
+// With keep-alive off, the app closes each connection after its response,
+// and the container's port forwarder cuts off what a slow reader hadn't yet
+// received. App upstreams must keep connections open.
+func TestAppUpstreamsKeepAlive(t *testing.T) {
+	cfg := Build(Options{Admin: "a", HTTPListen: "127.0.0.1:80", DNSAddr: "127.0.0.1:7753", SRVDomain: "berth.internal",
+		Routes: []Route{{App: "web", PublicHosts: []string{"web.example.com"}, Service: "web"}}})
+	b, _ := json.Marshal(cfg)
+	s := string(b)
+	if strings.Contains(s, `"keep_alive":{"enabled":false}`) {
+		t.Error("an app upstream has keep-alive off: large responses to slow clients get truncated")
+	}
+	if !strings.Contains(s, `"keep_alive":{"enabled":true,"idle_timeout":"2s"}`) {
+		t.Errorf("app upstream transport missing keep-alive: %s", s)
+	}
+}

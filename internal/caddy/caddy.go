@@ -392,8 +392,15 @@ func appHandlers(r Route, o Options) []any {
 			},
 			// Retry refused connections (a release restarting in place).
 			"load_balancing": obj{"try_duration": cmp.Or(r.TryDuration, "5s"), "try_interval": "100ms"},
-			// No pooled connections to a release that may be stopping.
-			"transport": obj{"protocol": "http", "keep_alive": obj{"enabled": false}},
+			// Keep the connection to the app open after each response. With
+			// keep-alive off, Caddy asks the app to close ("Connection:
+			// close"), and the container's port forwarder drops whatever it
+			// hasn't yet handed on when the app's side closes: a large
+			// response to a slow reader (a video through the tunnel, a
+			// phone) lost its last few hundred KB. A short idle timeout
+			// still lets connections to a release that's stopping go
+			// quickly; a deploy moves to a new port anyway.
+			"transport": obj{"protocol": "http", "keep_alive": obj{"enabled": true, "idle_timeout": "2s"}},
 		},
 	)
 	return hs
